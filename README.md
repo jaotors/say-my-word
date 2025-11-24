@@ -1,7 +1,6 @@
 # 📚 AI Word of the Day
 
 A simple web app that helps you learn a new English word every day.  
-It fetches a random word and uses AI (OpenAI GPT) to generate an easy-to-understand example sentence.  
 Perfect for daily vocabulary practice — especially if you’re preparing for IELTS or just want to improve your English.
 
 ## 🚀 Features (MVP)
@@ -24,17 +23,21 @@ cd say-the-word
 ```
 
 ### 2. Install Dependencies
+
 ```
 npm install
 ```
 
 ### 3. Setup Environment Variables
+
 Create a .env file in the root folder:
+
 ```
-OPENAI_API_KEY=your_api_key_here
+NEXT_API_URL=YOUR_BACKEND_API_URL
 ```
+
 ### 4. Run the App
+
 ```
 npm run dev
 ```
-
