@@ -1,21 +1,19 @@
-import { getWord } from '@/api/openai'
+import { getWord, WordOfTheDay } from '@/api/word'
 import { use } from 'react'
 
 const WordBlock = () => {
-  const data = use(getWord()) as string | undefined
-  console.log('data', data)
+  const data = use(getWord()) as WordOfTheDay
   let word = 'Word'
   let sentence = 'lorem ipsum dolor sit amet.'
   let meaning = 'lorem ipsum dolor sit amet.'
 
   if (data) {
     try {
-      const parsed = JSON.parse(data)
-      word = parsed.word || word
-      sentence = parsed.sentence || sentence
-      meaning = parsed.meaning || meaning
+      word = data.word.word || word
+      sentence = data.word.sentence || sentence
+      meaning = data.word.meaning || meaning
     } catch (e) {
-      console.error('Error parsing JSON:', e)
+      console.error('Error:', e)
     }
   }
 
@@ -25,7 +23,7 @@ const WordBlock = () => {
         <h2 className='text-6xl font-semibold'>{word}</h2>
         <p className='text-4xl'>{sentence}</p>
       </div>
-      <p className='text-base font-light'>{meaning}</p>
+      <p className='text-base font-light italic'>{meaning}</p>
     </div>
   )
 }
