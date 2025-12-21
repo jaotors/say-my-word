@@ -1,8 +1,5 @@
-import { WordOfTheDay } from '@/app/api/route'
-
-const getWord = async () => {
-  return fetch(`${process.env.NEXT_PUBLIC_URL}/api`).then((res) => res.json())
-}
+import type { WordOfTheDay } from '@/types/words'
+import { getWord } from '@/lib/words'
 
 const WordBlock = async () => {
   const data = (await getWord()) as WordOfTheDay
