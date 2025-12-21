@@ -1,9 +1,9 @@
 export const getWord = async () => {
-  const base = process.env.NEXT_PUBLIC_API_URL
+  const base = process.env.API_URL
 
   if (!base) {
     throw new Error(
-      'NEXT_PUBLIC_API_URL is not defined. Set it in your .env or environment.'
+      'API_URL is not defined. Set it in your .env or environment.'
     )
   }
 
